@@ -18,8 +18,10 @@ group node['tomcat-all']['group']
 # Create user
 user node['tomcat-all']['user'] do
   group node['tomcat-all']['group']
+  home node['tomcat-all']['user_home']
   system true
   shell '/bin/bash'
+  supports(manage_home: true)
 end
 
 # Download and unpack tomcat
@@ -60,4 +62,5 @@ end
 # Enabling tomcat service and starting
 service 'tomcat' do
   action [:enable, :start]
+  supports(start: true, restart: true, stop: true, status: false)
 end

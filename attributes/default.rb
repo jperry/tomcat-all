@@ -1,5 +1,6 @@
 # O.S. related settings
 default['tomcat-all']['user'] = 'tomcat'
+default['tomcat-all']['user_home'] = "/home/#{node['tomcat-all']['user']}"
 default['tomcat-all']['group'] = 'tomcat'
 
 # Tomcat related settings
